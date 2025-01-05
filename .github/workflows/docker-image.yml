@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Set Image Tag
         id: image-tag
-        run: echo "TAG=$(date + %s)-ci" >> "$GITHUB_OUTPUT"
+        run: echo "TAG=$(date +%s)-ci" >> "$GITHUB_OUTPUT"
       - name: Build the Docker image
         env:
           TAG: ${{ steps.image-tag.outputs.TAG }}
