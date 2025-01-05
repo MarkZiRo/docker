@@ -29,8 +29,6 @@ jobs:
       - name: Tag Image as latest
         env:
           TAG: ${{ steps.image-tag.outputs.TAG }}
-        run:
-          docker tag "${{ secrets.DOCKERHUB_USERNAME }}/docker:$TAG" \
-            "${{ secrets.DOCKERHUB_USERNAME }}/docker:latest"
+        run: docker tag "${{ secrets.DOCKERHUB_USERNAME }}/docker:$TAG" "${{ secrets.DOCKERHUB_USERNAME }}/docker:latest"
       - name: Push latest
         run: docker push "${{ secrets.DOCKERHUB_USERNAME }}/docker:latest"
